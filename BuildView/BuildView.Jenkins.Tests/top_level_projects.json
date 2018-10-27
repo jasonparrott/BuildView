@@ -1,0 +1,53 @@
+﻿{
+  "_class": "hudson.model.Hudson",
+  "assignedLabels": [
+    {
+      "name": "master"
+    }
+  ],
+  "mode": "NORMAL",
+  "nodeDescription": "the master Jenkins node",
+  "nodeName": "",
+  "numExecutors": 2,
+  "description": null,
+  "jobs": [
+    {
+      "_class": "com.cloudbees.hudson.plugins.folder.Folder",
+      "name": "First Folder",
+      "url": "http://localhost:8080/job/First%20Folder/"
+    },
+    {
+      "_class": "com.cloudbees.hudson.plugins.folder.Folder",
+      "name": "folder2",
+      "url": "http://localhost:8080/job/folder2/"
+    },
+    {
+      "_class": "hudson.model.FreeStyleProject",
+      "name": "rootproject",
+      "url": "http://localhost:8080/job/rootproject/",
+      "color": "notbuilt"
+    }
+  ],
+  "overallLoad": {
+
+  },
+  "primaryView": {
+    "_class": "hudson.model.AllView",
+    "name": "all",
+    "url": "http://localhost:8080/"
+  },
+  "quietingDown": false,
+  "slaveAgentPort": 50000,
+  "unlabeledLoad": {
+    "_class": "jenkins.model.UnlabeledLoadStatistics"
+  },
+  "useCrumbs": true,
+  "useSecurity": true,
+  "views": [
+    {
+      "_class": "hudson.model.AllView",
+      "name": "all",
+      "url": "http://localhost:8080/"
+    }
+  ]
+}

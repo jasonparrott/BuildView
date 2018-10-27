@@ -8,7 +8,7 @@ namespace BuildView.Jenkins
 {
     public class JenkinsConnector
     {
-        private static HttpClient httpClient = new HttpClient();
+        private HttpClient httpClient = new HttpClient();
 
         private readonly String jenkinsUrl;
         private readonly String username;
@@ -19,25 +19,31 @@ namespace BuildView.Jenkins
             
         }
 
-        public JenkinsConnector(String jenkinsUrl, String username, String password)
+        public JenkinsConnector(String jenkinsUrl, String username, String password) :
+            this(new HttpClient(), jenkinsUrl, username, password)
         {
+
+        }
+
+
+        public JenkinsConnector(HttpClient client, String jenkinsUrl, String username, String password)
+        {
+            this.httpClient = client;
             this.jenkinsUrl = jenkinsUrl;
             this.username = username;
             this.password = password;
         }
-        
-        public async Task<List<Project>> GetProjects(string path)
+
+        public async Task<JobsModel> GetModel(string path)
         {
-            List<Project> projects = null;
+            JobsModel model = null;
             HttpResponseMessage response = await httpClient.GetAsync(jenkinsUrl);
             if ( response.IsSuccessStatusCode )
             {
-                projects = await response.Content.ReadAsAsync<List<Project>>();
+                model = await response.Content.ReadAsAsync<JobsModel>();
             }
 
-            return projects;
-            
-
+            return model;
         }
         
     }

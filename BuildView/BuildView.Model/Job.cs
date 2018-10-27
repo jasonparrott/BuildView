@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BuildView.Model
 {
-    public class Project
+    public class Job
     {
         private String name;
         private String url;
